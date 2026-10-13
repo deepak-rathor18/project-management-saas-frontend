@@ -131,6 +131,10 @@ Available commands:
 
 Never add backend secrets to frontend environment variables or the built static site.
 
+### Vercel
+
+The repository-root `vercel.json` builds `frontend/` and rewrites frontend routes to `/index.html`. For a monorepo deployment, leave Vercel's Root Directory set to the repository root. If importing the frontend as a standalone project, set Root Directory to `frontend`; `frontend/vercel.json` applies the same route rewrite, with build output `dist`. Set `VITE_API_URL` in the Vercel project to the deployed backend URL ending in `/api`.
+
 ## 10. Test credentials
 
 The frontend does not create or store test accounts. For local development, use the demo accounts seeded by the backend. From the backend directory, configure a development-only database and run `node src/seed.js`. All accounts share password `Test@123456`:
